@@ -19,3 +19,7 @@
 #### [Sigstore (cosign)](plugins/sigstore_sign)
 
 - Sign and verify packages with [Sigstore](https://www.sigstore.dev/) using [cosign](https://github.com/sigstore/cosign).
+
+### [Python extension built with conan-py-build](python_build_backend)
+
+- Learn how to build a Python package with a C/C++ extension whose dependencies are managed by Conan through [conan-py-build](https://github.com/conan-io/conan-py-build). [Docs](https://docs.conan.io/2/integrations/python.html)
