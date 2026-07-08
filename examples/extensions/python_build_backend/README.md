@@ -12,7 +12,8 @@ a PEP 517 build backend.
 
 - `pyproject.toml` declares `conan-py-build` as the build backend.
 - `conanfile.py` is a regular Conan recipe declaring `pybind11` and `fmt`
-  as requirements, and building the extension with CMake.
+  as requirements, and building the extension with CMake using the same
+  Python interpreter as `pip`.
 - `CMakeLists.txt` builds the `_core` extension module and installs it
   into a `myadder` directory, matching the Python package name so the
   compiled module ends up next to `__init__.py` in the resulting wheel.
