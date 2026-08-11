@@ -28,6 +28,8 @@ Sources for the [examples section](https://docs.conan.io/2/examples.html) of the
 
 ### [Libraries examples](examples/libraries)
 
+### [Language interoperability examples](examples/languages)
+
 ### [Graph examples](examples/graph)
 
 ### [Security examples](examples/security)
