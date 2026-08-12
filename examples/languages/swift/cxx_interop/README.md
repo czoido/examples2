@@ -16,10 +16,7 @@ passes that to `swiftc` via `-Xcc -fmodule-map-file=...` together with
 ## Requirements
 
 - macOS with Xcode command line tools (`swiftc`), Swift 5.9+.
-- CMake >= 3.23, with the Ninja generator: CMake's Swift support doesn't work
-  with the "Unix Makefiles" default some CMake versions pick on macOS, and
-  `--preset` needs CMake >= 3.23 to read the `CMakePresets.json` schema
-  version `CMakeToolchain` generates.
+- CMake >= 3.23, with the Ninja generator.
 
 ## Build and run
 
