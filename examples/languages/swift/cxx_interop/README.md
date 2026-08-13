@@ -27,7 +27,7 @@ write.
 git clone https://github.com/conan-io/examples2.git
 cd examples2/examples/languages/swift/cxx_interop
 
-conan install . --build=missing
+conan install . -s build_type=Release --build=missing
 open demo.xcodeproj
 ```
 
