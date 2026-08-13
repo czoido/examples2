@@ -9,14 +9,17 @@ file -- no C wrapper library needed.
 
 Since lunasvg ships no Swift module map, `conanfile.py`'s `generate()` writes
 a small [Clang module map](https://clang.llvm.org/docs/Modules.html) pointing
-at its real installed header (read from `cpp_info`), and `CMakeLists.txt`
-passes that to `swiftc` via `-Xcc -fmodule-map-file=...` together with
-`-cxx-interoperability-mode=default`.
+at its real installed header (read from `cpp_info`), and sets `OTHER_SWIFT_FLAGS`
+through `XcodeToolchain.extra_xcconfig` to pass that to `swiftc` via
+`-Xcc -fmodule-map-file=...` together with `-cxx-interoperability-mode=default`.
+`demo.xcodeproj` is a plain Xcode project whose Release configuration is based
+on the `.xcconfig` files that Conan's `XcodeDeps`/`XcodeToolchain` generators
+write.
 
 ## Requirements
 
-- macOS with Xcode command line tools (`swiftc`), Swift 5.9+.
-- CMake >= 3.23, with the Ninja generator.
+- macOS with Xcode (`swiftc`, `xcodebuild`), Swift 5.9+.
+- Conan 2.32 or newer (`XcodeToolchain.extra_xcconfig`).
 
 ## Build and run
 
@@ -24,10 +27,17 @@ passes that to `swiftc` via `-Xcc -fmodule-map-file=...` together with
 git clone https://github.com/conan-io/examples2.git
 cd examples2/examples/languages/swift/cxx_interop
 
-conan install . --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja
-cmake --preset conan-release
-cmake --build --preset conan-release
-./build/Release/demo
+conan install . --build=missing
+open demo.xcodeproj
+```
+
+From there it is a normal Xcode project: press Run, and Swift calls into
+lunasvg. The same build also works from the command line:
+
+```bash
+xcodebuild -project demo.xcodeproj -scheme demo -configuration Release \
+    -derivedDataPath build build
+./build/Build/Products/Release/demo
 ```
 
 The program renders the SVG and writes `summer.png` to the working directory.

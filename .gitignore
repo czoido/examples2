@@ -56,6 +56,7 @@ venv/
 .pydevproject
 .settings/*
 .ropeproject/*
+**/xcuserdata/
 
 .tox
 CMakeUserPresets.json
@@ -69,6 +70,7 @@ tutorial/versioning/revisions/intro/chat/*
 tutorial/versioning/revisions/intro/hello/*
 examples/libraries/tensorflow-lite/pose-estimation/pose-estimation
 examples/libraries/imgui/introduction/bindings
+examples/languages/swift/cxx_interop/summer.png
 
 # Bazel files
 bazel-*
