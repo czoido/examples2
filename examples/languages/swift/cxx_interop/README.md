@@ -10,7 +10,7 @@ file -- no C wrapper library needed.
 Since lunasvg ships no Swift module map, `conanfile.py`'s `generate()` writes
 a small [Clang module map](https://clang.llvm.org/docs/Modules.html) pointing
 at its real installed header (read from `cpp_info`), and sets `OTHER_SWIFT_FLAGS`
-through `XcodeToolchain.extra_xcconfig` to pass that to `swiftc` via
+through `XcodeToolchain.build_settings` to pass that to `swiftc` via
 `-Xcc -fmodule-map-file=...` together with `-cxx-interoperability-mode=default`.
 `demo.xcodeproj` is a plain Xcode project whose Release configuration is based
 on the `.xcconfig` files that Conan's `XcodeDeps`/`XcodeToolchain` generators
@@ -19,7 +19,7 @@ write.
 ## Requirements
 
 - macOS with Xcode (`swiftc`, `xcodebuild`), Swift 5.9+.
-- Conan 2.32 or newer (`XcodeToolchain.extra_xcconfig`).
+- Conan 2.32 or newer (`XcodeToolchain.build_settings`).
 
 ## Build and run
 

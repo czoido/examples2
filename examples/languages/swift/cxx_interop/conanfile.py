@@ -33,7 +33,7 @@ class SwiftCppDemo(ConanFile):
         cppstd = cppstd_flag(self)
 
         tc = XcodeToolchain(self)
-        tc.extra_xcconfig["OTHER_SWIFT_FLAGS"] = (
+        tc.build_settings["OTHER_SWIFT_FLAGS"] = (
             f'$(inherited) -cxx-interoperability-mode=default '
             f'-Xcc {cppstd} -Xcc -fmodule-map-file="{modulemap_path}"'
         )
