@@ -12,7 +12,7 @@ let svg = """
     <ellipse cx="20" cy="-6" rx="20" ry="12"/>
     <ellipse cx="-20" cy="4" rx="18" ry="10"/>
   </g>
-  <text class="title" x="200" y="40" text-anchor="middle" font-size="24">Swift + C++ + Conan</text>
+  <text class="title" x="200" y="40" text-anchor="middle" font-size="22">Swift's C++ Interoperability</text>
   <g class="cloud" transform="translate(230,85)">
     <ellipse cx="0" cy="0" rx="22" ry="12"/>
     <ellipse cx="18" cy="-4" rx="16" ry="10"/>
